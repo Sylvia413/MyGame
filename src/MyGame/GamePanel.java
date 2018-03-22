@@ -14,10 +14,11 @@ public class GamePanel extends JPanel
     {  
         for(int i=0;i<20;i++)  
         {  
-            for(int j=0;j<30;j++)  
+            for(int j=0;j<30;j++) { 
                 grid[i][j]=0;  
+            }
         }  
-        setBackground(Color.BLACK);//ºÚÉ«±³¾°  
+        setBackground(Color.LIGHT_GRAY);  
         currentBlock=paintPanel.getBlock();  
         currentLocation[0]=9;  
         currentLocation[1]=0;  

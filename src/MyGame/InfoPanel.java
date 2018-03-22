@@ -97,7 +97,7 @@ class paintPanel extends JPanel
         super.paintComponent(g);  
         Graphics2D g2=(Graphics2D)g;  
         int[][] locations=nextBlock.getLocation(4,4);  
-        g2.setPaint(Color.BLUE);  
+        g2.setPaint(Color.RED);  
   
         for(int i=0;i<4;i++)  
         {  
