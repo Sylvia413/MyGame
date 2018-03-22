@@ -17,7 +17,7 @@ public class GamePanel extends JPanel
             for(int j=0;j<30;j++)  
                 grid[i][j]=0;  
         }  
-        setBackground(Color.BLACK);//ºÚÉ«±³¾°  
+        setBackground(Color.LIGHT_GRAY);  
         currentBlock=paintPanel.getBlock();  
         currentLocation[0]=9;  
         currentLocation[1]=0;  
@@ -28,13 +28,13 @@ public class GamePanel extends JPanel
   
   
   
-    public void paintComponent(Graphics g)//»æÖÆÓÎÏ·Çø  
+    public void paintComponent(Graphics g)//ç»˜åˆ¶æ¸¸æˆåŒº  
     {  
         super.paintComponent(g);  
         Graphics2D g2=(Graphics2D)g;  
-        g2.setPaint(Color.BLUE);//À¶É«·½¿é  
+        g2.setPaint(Color.BLUE);//è“è‰²æ–¹å—  
   
-        for(int i=0;i<20;i++)//½«gridÀïËùÓĞÎª1µÄÇøÓò¶¼»æÖÆÕı·½ĞÎ  
+        for(int i=0;i<20;i++)//å°†gridé‡Œæ‰€æœ‰ä¸º1çš„åŒºåŸŸéƒ½ç»˜åˆ¶æ­£æ–¹å½¢  
         {  
             for(int j=0;j<30;j++)  
             {  
@@ -45,7 +45,7 @@ public class GamePanel extends JPanel
                 }  
             }  
         }  
-        //È»ºóÔÙ½«µ±Ç°·½¿é¶ÔÏó»æÖÆÔÚÓÎÏ·Çø  
+        //ç„¶åå†å°†å½“å‰æ–¹å—å¯¹è±¡ç»˜åˆ¶åœ¨æ¸¸æˆåŒº  
         for(int i=0;i<4;i++)  
         {  
             if(locations[i][1]>=0)  
@@ -58,10 +58,10 @@ public class GamePanel extends JPanel
     }  
   
   
-    //ÔÚÓÎÏ·ÖĞÒÆ¶¯·½¿éµÄº¯Êı£¬ÊÇÖ÷Òªº¯Êı  
+    //åœ¨æ¸¸æˆä¸­ç§»åŠ¨æ–¹å—çš„å‡½æ•°ï¼Œæ˜¯ä¸»è¦å‡½æ•°  
     public void move(int direction)  
     {  
-        //flag==true£¬±íÊ¾µ±Ç°ÇøÓòÃ»ÓĞ»î¶¯µÄ¶ÔÏó£¬ĞèÒªµÃµ½ÏÂÒ»¸ö¶ÔÏó  
+        //flag==trueï¼Œè¡¨ç¤ºå½“å‰åŒºåŸŸæ²¡æœ‰æ´»åŠ¨çš„å¯¹è±¡ï¼Œéœ€è¦å¾—åˆ°ä¸‹ä¸€ä¸ªå¯¹è±¡  
         if(flag==true)  
         {  
             currentBlock=paintPanel.getBlock();  
@@ -70,8 +70,8 @@ public class GamePanel extends JPanel
             locations=currentBlock.getLocation(currentLocation[0], currentLocation[1]);  
             flag=false;  
         }  
-        //±íÊ¾µ±Ç°ÇøÓòÓĞ»î¶¯µÄ¶ÔÏó  
-        //ÅĞ¶ÏÊÇ·ñµ½µ×£¬Èç¹û²»ÄÜÔÙÂäÏÂ£¬ÄÇÃ´½«µ±Ç°¶ÔÏóµÄ¿é×ø±êÌí¼Ó½øgridÀï£¬È»ºóÉèÖÃflagÎªtrue  
+        //è¡¨ç¤ºå½“å‰åŒºåŸŸæœ‰æ´»åŠ¨çš„å¯¹è±¡  
+        //åˆ¤æ–­æ˜¯å¦åˆ°åº•ï¼Œå¦‚æœä¸èƒ½å†è½ä¸‹ï¼Œé‚£ä¹ˆå°†å½“å‰å¯¹è±¡çš„å—åæ ‡æ·»åŠ è¿›gridé‡Œï¼Œç„¶åè®¾ç½®flagä¸ºtrue  
         if(isBottom(locations)==true)  
         {  
             flag=true;  
@@ -90,7 +90,7 @@ public class GamePanel extends JPanel
             }  
             return;  
         }  
-        //ÅĞ¶ÏÊÇ·ñÄÜ×óÓÒÒÆ¶¯£¬Èç¹û²»ĞĞ£¬ÄÇÃ´µ±Ç°µã×ø±êµÄyÖµ²»ÔÙ±ä»¯£¬Èç¹û¿ÉÒÔ£¬ÔòyÖµ¼ÓÉÏdirection£¬direction=1±íÊ¾ÓÒÒÆ£¬-1±íÊ¾×óÒÆ£¬0±íÊ¾Ã»ÓĞ×óÓÒÒÆ¶¯  
+        //åˆ¤æ–­æ˜¯å¦èƒ½å·¦å³ç§»åŠ¨ï¼Œå¦‚æœä¸è¡Œï¼Œé‚£ä¹ˆå½“å‰ç‚¹åæ ‡çš„yå€¼ä¸å†å˜åŒ–ï¼Œå¦‚æœå¯ä»¥ï¼Œåˆ™yå€¼åŠ ä¸Šdirectionï¼Œdirection=1è¡¨ç¤ºå³ç§»ï¼Œ-1è¡¨ç¤ºå·¦ç§»ï¼Œ0è¡¨ç¤ºæ²¡æœ‰å·¦å³ç§»åŠ¨  
         if(isEdge(direction)==false)  
         {  
             currentLocation[0]+=direction;  
@@ -101,7 +101,7 @@ public class GamePanel extends JPanel
         repaint();  
   
     }  
-    //ÔÚ°´ÏÂÁËÏòÏÂµÄ¼üºó£¬Ö±½ÓÒÆµ½µ×²¿µÄº¯Êı  
+    //åœ¨æŒ‰ä¸‹äº†å‘ä¸‹çš„é”®åï¼Œç›´æ¥ç§»åˆ°åº•éƒ¨çš„å‡½æ•°  
     public void moveToBottom()  
     {  
   
@@ -124,7 +124,7 @@ public class GamePanel extends JPanel
         flag=true;  
         repaint();  
     }  
-    //¼ì²âÊÇ·ñÓÎÏ·½áÊø  
+    //æ£€æµ‹æ˜¯å¦æ¸¸æˆç»“æŸ  
     public boolean checkOver()  
     {  
         for(int i=0;i<4;i++)  
@@ -134,7 +134,7 @@ public class GamePanel extends JPanel
         }  
         return false;  
     }  
-    //¼ì²âÊÇ·ñµ½µ×  
+    //æ£€æµ‹æ˜¯å¦åˆ°åº•  
     private boolean isBottom(int[][] l)  
     {  
         for(int i=0;i<4;i++)  
@@ -149,7 +149,7 @@ public class GamePanel extends JPanel
         }  
         return false;  
     }  
-    //¼ì²âÊÇ·ñµ½´ï±ßÔµ  
+    //æ£€æµ‹æ˜¯å¦åˆ°è¾¾è¾¹ç¼˜  
     private boolean isEdge(int direction)  
     {  
         for(int i=0;i<4;i++)  
@@ -165,7 +165,7 @@ public class GamePanel extends JPanel
         return false;  
     }  
   
-    //¼ì²â¸ÃĞĞÊÇ·ñÒÑÂú£¬²¢ÇÒ½øĞĞÏûĞĞ´¦Àí  
+    //æ£€æµ‹è¯¥è¡Œæ˜¯å¦å·²æ»¡ï¼Œå¹¶ä¸”è¿›è¡Œæ¶ˆè¡Œå¤„ç†  
     public int checkLine()  
     {  
         int lines=0;  
@@ -202,7 +202,7 @@ public class GamePanel extends JPanel
     }  
   
   
-    //¸Ä±ä·½¿é×ËÌ¬µÄº¯Êı£¬²»½öÒª¸Ä±ä×ËÌ¬£¬»¹Òª¼ì²â¸Ä±äºóµÄ·½¿éÊÇ·ñÔ½½ç£¬Èç¹ûÔ½½ç£¬¾ÍÒª½øĞĞµ÷Õû  
+    //æ”¹å˜æ–¹å—å§¿æ€çš„å‡½æ•°ï¼Œä¸ä»…è¦æ”¹å˜å§¿æ€ï¼Œè¿˜è¦æ£€æµ‹æ”¹å˜åçš„æ–¹å—æ˜¯å¦è¶Šç•Œï¼Œå¦‚æœè¶Šç•Œï¼Œå°±è¦è¿›è¡Œè°ƒæ•´  
     public void changePosition()  
     {  
         currentBlock.changePosition();  
@@ -233,7 +233,7 @@ public class GamePanel extends JPanel
         locations=currentBlock.getLocation(currentLocation[0], currentLocation[1]);  
         repaint();  
     }  
-    //µ±°´ÏÂreset¼üµÄÊ±ºò£¬ÖØÖÃGamePanel  
+    //å½“æŒ‰ä¸‹reseté”®çš„æ—¶å€™ï¼Œé‡ç½®GamePanel  
     public static void resetGamePanel()  
     {  
         for(int i=0;i<30;i++)  
@@ -246,13 +246,13 @@ public class GamePanel extends JPanel
         flag=true;  
     }  
   
-    private static int[][] grid=new int[20][30];//ÓÃÀ´´æ´¢ÓÎÏ·ÇøÊı¾İµÄÊı×é£¬Îª1±íÊ¾µ±Ç°¸ñÓĞ·½¿é,Ç°¸ö×ø±ê±íÊ¾x£¬ºóÒ»¸ö±íÊ¾y£¬ÓëÒ»°ãµÄÊı×éÓĞµã²»Ò»Ñù  
-    private Blocks currentBlock;//Ä¿Ç°ÕıÔÚÓÎÏ·Çø»î¶¯µÄ·½¿é  
-    private int[][] locations;//µ±Ç°»î¶¯·½¿éµÄ¸÷¸ö·½¿éµÄ×ø±ê  
-    private int[] currentLocation=new int[]{0,0};//µ±Ç°²Î¿¼µãµÄ×ø±ê  
-    private int BLOCK_WIDTH=18;//·½¿éµÄ±ß³¤  
+    private static int[][] grid=new int[20][30];//ç”¨æ¥å­˜å‚¨æ¸¸æˆåŒºæ•°æ®çš„æ•°ç»„ï¼Œä¸º1è¡¨ç¤ºå½“å‰æ ¼æœ‰æ–¹å—,å‰ä¸ªåæ ‡è¡¨ç¤ºxï¼Œåä¸€ä¸ªè¡¨ç¤ºyï¼Œä¸ä¸€èˆ¬çš„æ•°ç»„æœ‰ç‚¹ä¸ä¸€æ ·  
+    private Blocks currentBlock;//ç›®å‰æ­£åœ¨æ¸¸æˆåŒºæ´»åŠ¨çš„æ–¹å—  
+    private int[][] locations;//å½“å‰æ´»åŠ¨æ–¹å—çš„å„ä¸ªæ–¹å—çš„åæ ‡  
+    private int[] currentLocation=new int[]{0,0};//å½“å‰å‚è€ƒç‚¹çš„åæ ‡  
+    private int BLOCK_WIDTH=18;//æ–¹å—çš„è¾¹é•¿  
     private int BLOCK_HEIGHT=18;  
-    private int POINT_DISTANCE=20;//×ø±êµãµÄ¼ä¾à  
-    private static boolean flag=true;//ÎªtrueÊ±£¬±íÊ¾µ±Ç°Ã»ÓĞ»î¶¯µÄ·½¿é  
+    private int POINT_DISTANCE=20;//åæ ‡ç‚¹çš„é—´è·  
+    private static boolean flag=true;//ä¸ºtrueæ—¶ï¼Œè¡¨ç¤ºå½“å‰æ²¡æœ‰æ´»åŠ¨çš„æ–¹å—  
   
 }  
